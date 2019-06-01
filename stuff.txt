@@ -1,0 +1,6 @@
+print(side1)
+    print(side2)
+    print(side3)
+    print(side4)
+
+
