@@ -60,21 +60,30 @@ def L():
 
 def U():
     side1 = [cube[2][p] for p in range(0,3)]  # Red
-    side2 = [cube[1][p] for p in range(0,3)]  # Green
-    side3 = [cube[4][p] for p in range(0,3)]  # Orange
+    side2 = [cube[1][p] for p in range(2,-1,-1)]  # Green
+    side3 = [cube[4][p] for p in range(8,5,-1)]  # Orange
     side4 = [cube[3][p] for p in range(0,3)]  # Blue
     w1 = [cube[0][p] for p in range(0,3)]
     w2 = [cube[0][p] for p in range(3,6)]
     w3 = [cube[0][p] for p in range(6,9)]
-    c = 0
+    print(side1)
+    print(side2)
+    print(side3)
+    print(side4)
+    c1 = 0
+    c2 = 0
     wc = 0
 
     for i in range(0,3):
-        cube[2][i] = side4[c]
-        cube[1][i] = side1[c]
-        cube[4][i] = side2[c]
-        cube[3][i] = side3[c]
-        c += 1
+        cube[2][i] = side4[c1]
+        cube[1][i] = side1[c1]
+        cube[3][i] = side3[c1]
+        c1 += 1
+
+    for i in range(6,9):
+        cube[4][i] = side2[c2]
+        c2 += 1
+
 
     for i in range(0,9,3):
         cube[0][i] = w3[wc]
@@ -208,7 +217,7 @@ def RI():
         cube[3][i+2] = b3[bc]
         bc -= 1
 
-def L():
+def LI():
     side1 = [cube[0][p] for p in range(0,9,3)]  # White
     side2 = [cube[2][p] for p in range(0,9,3)]  # Red
     side3 = [cube[4][p] for p in range(0,9,3)]  # Orange
@@ -217,47 +226,46 @@ def L():
     g2 = [cube[1][p] for p in range(3,6)]
     g3 = [cube[1][p] for p in range(6,9)]
     c = 0
-    gc = 0
+    gc = 2
 
     for i in range(0,9,3):
-        cube[0][i] = side3[c]
-        cube[2][i] = side1[c]
-        cube[4][i] = side4[c]
-        cube[5][i] = side2[c]
+        cube[0][i] = side2[c]
+        cube[2][i] = side4[c]
+        cube[4][i] = side1[c]
+        cube[5][i] = side3[c]
         c += 1
 
     for i in range(0,9,3):
-        cube[1][i] = g3[gc]
+        cube[1][i] = g1[gc]
         cube[1][i+1] = g2[gc]
-        cube[1][i+2] = g1[gc]
-        gc += 1
+        cube[1][i+2] = g3[gc]
+        gc -= 1
 
-
-# def DI():
-#     side1 = [cube[2][p] for p in range(6,9)]  # Red
-#     side2 = [cube[1][p] for p in range(6,9)]  # Green
-#     side3 = [cube[4][p] for p in range(6,9)]  # Orange
-#     side4 = [cube[3][p] for p in range(6,9)]  # Blue
-#     print(side4)
+# def UI():
+#     side1 = [cube[2][p] for p in range(0,3)]  # Red
+#     side2 = [cube[1][p] for p in range(0,3)]  # Green
+#     side3 = [cube[4][p] for p in range(0,3)]  # Orange
+#     side4 = [cube[3][p] for p in range(0,3)]  # Blue
 #     w1 = [cube[0][p] for p in range(0,3)]
 #     w2 = [cube[0][p] for p in range(3,6)]
 #     w3 = [cube[0][p] for p in range(6,9)]
 #     c = 0
-#     wc = 0
+#     wc = 2
 
-#     for i in range(6,9):
-#         cube[2][i] = side4[c]
-#         cube[1][i] = side1[c]
-#         cube[4][i] = side2[c]
-#         cube[3][i] = side3[c]
+#     for i in range(0,3):
+#         cube[2][i] = side2[c]
+#         cube[1][i] = side3[c]
+#         cube[4][i] = side4[c]
+#         cube[3][i] = side1[c]
 #         c += 1
 
 #     for i in range(0,9,3):
-#         cube[0][i] = w3[wc]
+#         cube[0][i] = w1[wc]
 #         cube[0][i+1] = w2[wc]
-#         cube[0][i+2] = w1[wc]
-#         wc += 1
+#         cube[0][i+2] = w3[wc]
+#         wc -= 1
+
 
 if __name__ == "__main__":
-    RI()
+    D()
     print(cube)
